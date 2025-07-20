@@ -20,7 +20,7 @@ import ProfileView from './profile/ProfileView';
 import MyVentures from './ventures/MyVentures';
 import VentureBuilder from './venture_builder/VentureBuilder';
 import SellingVentureListing from './trading/SellingVentureListing';
-import { Search, Users, BarChart3, MessageSquare, Bell, Settings, Building2, TrendingUp, Globe, Filter, Plus, Star, MapPin, DollarSign, Calendar, Eye, Heart, Share2, Brain, Bookmark, Mail, Briefcase, UserSearch } from 'lucide-react';
+import { Search, Users, BarChart3, MessageSquare, Bell, Settings, Building2, TrendingUp, Globe, Filter, Plus, Star, MapPin, DollarSign, Calendar, Eye, Heart, Share2, Brain, Bookmark, Mail, Briefcase, UserSearch, Lightbulb, Target } from 'lucide-react';
 import { ChevronDown } from 'lucide-react';
 import MyServicesMain from './my_services/MyServicesMain';
 
@@ -83,8 +83,8 @@ const MainPlatform: React.FC<MainPlatformProps> = ({ profileCompleted, onReturnT
   const navigationItems = [
     { id: 'social', label: 'Social Network', icon: Users },
     { id: 'trading', label: 'Equity Trading', icon: TrendingUp },
-    { id: 'intelligence', label: 'Market Intelligence', icon: Brain },
-    { id: 'experts', label: 'Experts Marketplace', icon: MessageSquare }
+    { id: 'intelligence', label: 'Market Intelligence', icon: Target },
+    { id: 'experts', label: 'Experts Marketplace', icon: Lightbulb }
   ];
 
   const opportunities = [
@@ -808,6 +808,21 @@ const MainPlatform: React.FC<MainPlatformProps> = ({ profileCompleted, onReturnT
                 </span>
               )}
 
+              <button 
+                onClick={() => {
+                  setShowVentureBuilder(true);
+                  setShowProfileView(false);
+                  setShowMyVentures(false);
+                  setIsMyInvestmentsView(false);
+                  // Close all dropdowns when navigating
+                  setShowNotificationsDropdown(false);
+                  setShowProfileDropdown(false);
+                }}
+                className="p-2 text-gray-400 hover:text-white transition-colors"
+                title="Venture Builder"
+              >
+                <Brain className="w-5 h-5" />
+              </button>
               {/* Notifications Dropdown */}
               {showNotificationsDropdown && (
                 <div id="notifications-dropdown" className="absolute right-0 mt-2 w-80 bg-linkedin-card rounded-lg shadow-lg border border-linkedin-border z-[9999]" style={{top: '100%'}}>
